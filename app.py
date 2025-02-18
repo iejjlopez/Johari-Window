@@ -13,13 +13,15 @@ def index():
 
 @app.route("/submit", methods=["POST"])
 def submit():
+    # Obtener respuestas del formulario
     responses = [
         request.form["open_area"],
         request.form["hidden_area"],
         request.form["blind_area"],
         request.form["unknown_area"]
-    pass
     ]
+
+    # Analizar respuestas con NLP
     suggestions = []
     for response in responses:
         result = sentiment_analyzer(response)[0]
@@ -27,6 +29,8 @@ def submit():
             suggestions.append("Considera trabajar en esta área para mejorar tu autoconciencia.")
         else:
             suggestions.append("¡Buen trabajo! Sigue fortaleciendo esta área.")
+
+    # Guardar resultados en un CSV
     data = {
         'Área Abierta': [responses[0]],
         'Área Oculta': [responses[1]],
@@ -36,6 +40,8 @@ def submit():
     }
     df = pd.DataFrame(data)
     df.to_csv("results.csv", index=False)
+
+    # Devolver sugerencias al usuario
     return jsonify(suggestions)
 
 if __name__ == "__main__":
