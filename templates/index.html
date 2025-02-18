@@ -32,11 +32,19 @@
                 method: "POST",
                 body: new FormData(event.target)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Error en la solicitud: " + response.statusText);
+                }
+                return response.json();
+            })
             .then(data => {
                 document.getElementById("suggestions").innerHTML = "<h2>Sugerencias:</h2><ul>" + data.map(s => "<li>" + s + "</li>").join("") + "</ul>";
             })
-            .catch(error => console.error("Error:", error));
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("suggestions").innerHTML = "<p style='color: red;'>Error: " + error.message + "</p>";
+            });
         });
     </script>
 </body>
