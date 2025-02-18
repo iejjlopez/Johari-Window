@@ -1,4 +1,4 @@
 Flask==2.3.2
 pandas==2.0.3
-transformers==4.30.2
-torch==2.0.1
+# Usa una versión compatible de torch o elimina esta línea si no es necesaria
+torch==2.4.0
