@@ -1,7 +1,89 @@
-from flask import Flask, render_template
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-app = Flask(__name__)
+/* Contenedor principal */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+/* Título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4a90e2;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+/* Sugerencias */
+#suggestions {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#suggestions h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#suggestions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#suggestions li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-left: 4px solid #4a90e2;
+    font-size: 14px;
+}
