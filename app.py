@@ -18,6 +18,7 @@ def submit():
         request.form["hidden_area"],
         request.form["blind_area"],
         request.form["unknown_area"]
+    pass
     ]
     suggestions = []
     for response in responses:
